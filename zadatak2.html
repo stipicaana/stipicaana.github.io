@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dobrodošlica</title>
+</head>
+<body>
+    <label for="ime">Ime:</label>
+    <input type="text" id="ime" name="ime">
+    
+    <label for="prezime">Prezime:</label>
+    <input type="text" id="prezime" name="prezime">
+    
+    <button id="gumb">Klikni za dobrodošlicu</button>
+
+    <div id="ispis" style="margin-top: 20px; font-size: 18px; font-weight: bold;"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const imeInput = document.getElementById('ime');
+            const prezimeInput = document.getElementById('prezime');
+            const gumb = document.getElementById('gumb');
+            const ispis = document.getElementById('ispis');
+
+            function velikaSlova(tekst) {
+                return tekst.charAt(0).toUpperCase() + tekst.slice(1).toLowerCase();
+            }
+
+            function prikaziPoruku() {
+                const ime = velikaSlova(imeInput.value.trim());
+                const prezime = velikaSlova(prezimeInput.value.trim());
+
+                if (ime && prezime) {
+                    ispis.textContent = `Dobro došli ${ime} ${prezime}!`;
+                } else {
+                    ispis.textContent = "Molimo unesite i ime i prezime.";
+                }
+            }
+
+            gumb.addEventListener('click', prikaziPoruku);
+        });
+    </script>
+</body>
+</html>
