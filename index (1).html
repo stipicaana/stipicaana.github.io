@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dodavanje teksta i HTML-a</title>
+  <style>
+    button {
+      margin: 5px;
+    }
+    #kopirano {
+      margin-top: 10px;
+      border: 1px solid gray;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="test">
+  Ovo je neki <strong>podebljan</strong> i <em>nakošen</em> tekst.
+</div>
+
+<button onclick="dodajInnerText()">Metoda text</button>
+<button onclick="dodajInnerHTML()">Metoda html</button>
+<button onclick="appendText()">Metoda append text</button>
+<button onclick="appendHTML()">Metoda append html</button>
+
+<p id="kopirano"></p>
+
+<script>
+  function dodajInnerText() {
+    const cistiText = document.getElementById("test").innerText;
+    document.getElementById("kopirano").innerText = cistiText;
+  }
+
+  function dodajInnerHTML() {
+    const cistiHTML = document.getElementById("test").innerHTML;
+    document.getElementById("kopirano").innerHTML = cistiHTML;
+  }
+
+  function appendText() {
+    const cistiText = document.getElementById("test").innerText;
+    document.getElementById("kopirano").innerText += " " + cistiText;
+  }
+
+  function appendHTML() {
+    const cistiHTML = document.getElementById("test").innerHTML;
+    document.getElementById("kopirano").innerHTML += " " + cistiHTML;
+  }
+</script>
+
+</body>
+</html>
